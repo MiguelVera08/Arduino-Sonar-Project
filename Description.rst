@@ -22,3 +22,9 @@ Generic HC-SR04 Sonar Distance Sensor has four pins connected to Vcc, Trigger, E
 If no object is blocking the sensor then the light will become red.
 
 .. image:: https://github.com/MiguelVera08/Arduino-Sonar-Project/blob/master/image/Red_on.jpg
+
+
+Once an object comes in range of sensor in this case less than or equal to five inches then the light will turn green.
+
+.. image:: https://github.com/MiguelVera08/Arduino-Sonar-Project/blob/master/image/Green_on.jpg
+
