@@ -28,3 +28,22 @@ Once an object comes in range of sensor in this case less than or equal to five 
 
 .. image:: https://github.com/MiguelVera08/Arduino-Sonar-Project/blob/master/image/Green_on.jpg
 
+**Code Breakdown**
+
+**config.h**
+
+Config.h sets up the trigger and echo pins on the sensor with the 2 and 4 digital pins from the Arduino board
+
+.. code:: c
+	//config.h - pin assignments for this project
+	#include <avr/io.h>
+	#include "PORT_CONFIG.inc"
+	#define TRIGGER     2
+	#define TRIG_DIR    DDRD
+	#define TRIG_PORT   PORTD
+	#define ECHO        4
+	#define ECHO_DIR    DDRD
+	#define ECHO_PORT   PORTD
+	#define _(s)    _SFR_IO_ADDR(s)
+
+        
