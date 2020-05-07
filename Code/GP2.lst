@@ -1,0 +1,98 @@
+GP2.elf:     file format elf32-avr
+Disassembly of section .text:
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 6b 00 	call	0xd6	; 0xd6 <main>
+  78:	0c 94 73 00 	jmp	0xe6	; 0xe6 <_exit>
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+00000080 <led>:
+  80:	05 97       	sbiw	r24, 0x05	; 5
+  82:	1c f0       	brlt	.+6      	; 0x8a <led+0xa>
+  84:	2d 9a       	sbi	0x05, 5	; 5
+  86:	2b 98       	cbi	0x05, 3	; 5
+  88:	08 95       	ret
+  8a:	2d 98       	cbi	0x05, 5	; 5
+  8c:	2b 9a       	sbi	0x05, 3	; 5
+  8e:	08 95       	ret
+00000090 <sonic>:
+  90:	52 9a       	sbi	0x0a, 2	; 10
+  92:	54 98       	cbi	0x0a, 4	; 10
+  94:	5a 98       	cbi	0x0b, 2	; 11
+00000096 <send>:
+  96:	5a 9a       	sbi	0x0b, 2	; 11
+  98:	0e 94 5a 00 	call	0xb4	; 0xb4 <firstDelay>
+  9c:	5a 98       	cbi	0x0b, 2	; 11
+0000009e <receive>:
+  9e:	55 27       	eor	r21, r21
+000000a0 <waiting>:
+  a0:	0e 94 61 00 	call	0xc2	; 0xc2 <secondDelay>
+  a4:	53 95       	inc	r21
+  a6:	4c 99       	sbic	0x09, 4	; 9
+  a8:	fb cf       	rjmp	.-10     	; 0xa0 <waiting>
+  aa:	99 27       	eor	r25, r25
+  ac:	85 2f       	mov	r24, r21
+  ae:	0e 94 61 00 	call	0xc2	; 0xc2 <secondDelay>
+  b2:	08 95       	ret
+000000b4 <firstDelay>:
+  b4:	22 e0       	ldi	r18, 0x02	; 2
+  b6:	30 e5       	ldi	r19, 0x50	; 80
+  b8:	3a 95       	dec	r19
+  ba:	f1 f7       	brne	.-4      	; 0xb8 <firstDelay+0x4>
+  bc:	2a 95       	dec	r18
+  be:	d9 f7       	brne	.-10     	; 0xb6 <firstDelay+0x2>
+  c0:	08 95       	ret
+000000c2 <secondDelay>:
+  c2:	24 e6       	ldi	r18, 0x64	; 100
+  c4:	3a e3       	ldi	r19, 0x3A	; 58
+  c6:	40 e1       	ldi	r20, 0x10	; 16
+  c8:	4a 95       	dec	r20
+  ca:	f1 f7       	brne	.-4      	; 0xc8 <secondDelay+0x6>
+  cc:	3a 95       	dec	r19
+  ce:	d9 f7       	brne	.-10     	; 0xc6 <secondDelay+0x4>
+  d0:	2a 95       	dec	r18
+  d2:	c1 f7       	brne	.-16     	; 0xc4 <secondDelay+0x2>
+  d4:	08 95       	ret
+000000d6 <main>:
+  d6:	84 b1       	in	r24, 0x04	; 4
+  d8:	88 62       	ori	r24, 0x28	; 40
+  da:	84 b9       	out	0x04, r24	; 4
+  dc:	0e 94 48 00 	call	0x90	; 0x90 <sonic>
+  e0:	0e 94 40 00 	call	0x80	; 0x80 <led>
+  e4:	fb cf       	rjmp	.-10     	; 0xdc <main+0x6>
+000000e6 <_exit>:
+  e6:	f8 94       	cli
+000000e8 <__stop_program>:
+  e8:	ff cf       	rjmp	.-2      	; 0xe8 <__stop_program>
