@@ -31,3 +31,17 @@
 #define _OCR0A    _SFR_IO_ADDR(OCR0A)
 ; OCR0B: 0x28 (0x48)
 #define _OCR0B    _SFR_IO_ADDR(OCR0B)
+
+; Timer 1 ---------------------------------------
+; TIFR1: 0x16 (0x26)
+#define _TIRF1    _SFR_IO_ADDR(TIFR1)
+; Timer 2 ---------------------------------------
+; TIFR2: 0x17 (0x37)
+#define _TIFR2    _SFR_IO_ADDR(TIFR2)
+; chip initialization ---------------------------
+; SPL: 0x3D (0x5D)
+#define _SPL    _SFR_IO_ADDR(SPL)
+; SPH: 0x3E (0x5E)
+#define _SPH    _SFR_IO_ADDR(SPH)
+; SREG 0x3F (0x5F)
+#define _SREG    _SFR_IO_ADDR(SREG)
