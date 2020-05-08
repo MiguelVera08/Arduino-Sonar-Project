@@ -9,3 +9,11 @@
 ; PORTC --------------------------------------
 # PINC: 0x06 (0x26)
 #define _PINC _SFR_IO_ADDR(PINC)
+
+; PORTD --------------------------------------
+; PIND: 0x09 (0x29)
+#define _PIND   _SFR_IO_ADDR(PIND)
+; DDRD: 0x0A (0x2A)
+#define _DDRD   _SFR_IO_ADDR(DDRD)
+; PORTD: 0x0B (0x2B)
+#define _PORTD  _SFR_IO_ADDR(PORTD)
