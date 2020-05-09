@@ -12,3 +12,7 @@ extern	int sonic();
 #define R_OFF               (PORTB &= ~(1<<R_PIN))
 #define G_ON                (PORTB |= (1<<G_PIN))
 #define G_OFF               (PORTB &= ~(1<<G_PIN))
+
+//Define Buzzer Pin controls
+#define BUZZ_ON             (BUZZ_PORT |= (1<<BUZZ_PIN))
+#define BUZZ_OFF            (BUZZ_PORT &= ~(1<<BUZZ_PIN))
