@@ -20,3 +20,16 @@ extern	int sonic();
 //setup
 #define LED_CONFIG          (DDRB |= (1<<5) | (1<<3))
 #define CLOCK_PRESCALE(n)   (CLKPR = 0x80, CLKPR = (n))
+
+//Function to decide what led should turn on
+void led(int distance){
+    //If sonar sensor distance is greater then 30cm toggle red led
+    if (distance >= 5){
+        R_ON;
+        G_OFF;
+    }
+    else {
+        R_OFF;
+        G_ON;
+    }
+}
