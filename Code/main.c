@@ -33,3 +33,14 @@ void led(int distance){
         G_ON;
     }
 }
+
+/Main function
+int main(void) {
+    int distance;
+    LED_CONFIG;
+    while(1) {
+        distance = sonic();
+        led(distance);
+    }
+    return 0;
+}
