@@ -16,3 +16,7 @@ extern	int sonic();
 //Define Buzzer Pin controls
 #define BUZZ_ON             (BUZZ_PORT |= (1<<BUZZ_PIN))
 #define BUZZ_OFF            (BUZZ_PORT &= ~(1<<BUZZ_PIN))
+
+//setup
+#define LED_CONFIG          (DDRB |= (1<<5) | (1<<3))
+#define CLOCK_PRESCALE(n)   (CLKPR = 0x80, CLKPR = (n))
