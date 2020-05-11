@@ -14,3 +14,12 @@ send:
         cbi             _PORTD, TRIGGER
 receive:
         clr             r21
+waiting:
+        call            secondDelay
+        inc             r21
+        sbic            _PIND, ECHO
+        rjmp            waiting
+        clr		r25
+        mov		r24, r21
+        call            secondDelay
+        ret
