@@ -33,5 +33,18 @@ firstDelay:
         dec             r18
         brne            1b
         ret
-
+secondDelay:
+        ldi             r18, 100
+5:
+        ldi             r19, 58
+6:
+        ldi             r20, 16
+7:
+        dec             r20
+        brne            7b
+        dec             r19
+        brne            6b
+        dec             r18
+        brne            5b
+        ret
 
