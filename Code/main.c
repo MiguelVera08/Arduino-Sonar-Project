@@ -34,7 +34,7 @@ void led(int distance){
     }
 }
 
-/Main function
+//Main function
 int main(void) {
     int distance;
     LED_CONFIG;
