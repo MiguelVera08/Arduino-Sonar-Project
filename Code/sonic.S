@@ -19,7 +19,19 @@ waiting:
         inc             r21
         sbic            _PIND, ECHO
         rjmp            waiting
-        clr		r25
-        mov		r24, r21
+        clr		        r25
+        mov		        r24, r21
         call            secondDelay
         ret
+firstDelay:
+        ldi             r18, 2
+1:
+        ldi             r19, 80
+2:
+        dec             r19
+        brne            2b
+        dec             r18
+        brne            1b
+        ret
+
+
